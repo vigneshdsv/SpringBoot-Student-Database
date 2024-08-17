@@ -1,5 +1,6 @@
 package StudentDatabase.studentDB;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StudentDbApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentDbApplication.class, args);
+
+		final var app = new SpringApplication(StudentDbApplication.class);
+		app.setBannerMode(Banner.Mode.OFF);
+		app.run(args);
+
 	}
 
 }

@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class CreateStudentResponse {
 }
