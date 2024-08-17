@@ -1,11 +1,10 @@
-package StudentDatabase.studentDB.validator;
+package com.student_database.manage.validator;
 
-import StudentDatabase.studentDB.dto.Constants;
-import StudentDatabase.studentDB.dto.StudentEntityRequest;
+import com.student_database.manage.dto.Constants;
+import com.student_database.manage.dto.StudentEntityRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 @Component
 public class Validator {

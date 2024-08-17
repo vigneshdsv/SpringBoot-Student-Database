@@ -1,4 +1,4 @@
-package StudentDatabase.studentDB.dto;
+package com.student_database.manage.dto;
 
 import org.springframework.stereotype.Component;
 

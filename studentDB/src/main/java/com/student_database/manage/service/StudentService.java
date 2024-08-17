@@ -1,7 +1,7 @@
-package StudentDatabase.studentDB.service;
+package com.student_database.manage.service;
 
-import StudentDatabase.studentDB.dto.CreateStudentResponse;
-import StudentDatabase.studentDB.dto.StudentEntityRequest;
+import com.student_database.manage.dto.CreateStudentResponse;
+import com.student_database.manage.dto.StudentEntityRequest;
 import org.springframework.stereotype.Service;
 
 @Service

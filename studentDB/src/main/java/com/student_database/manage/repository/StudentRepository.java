@@ -1,6 +1,6 @@
-package StudentDatabase.studentDB.repository;
+package com.student_database.manage.repository;
 
-import StudentDatabase.studentDB.dto.StudentEntityRequest;
+import com.student_database.manage.dto.StudentEntityRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

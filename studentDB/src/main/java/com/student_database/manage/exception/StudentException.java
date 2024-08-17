@@ -1,4 +1,4 @@
-package StudentDatabase.studentDB.exception;
+package com.student_database.manage.exception;
 
 import lombok.Data;
 
