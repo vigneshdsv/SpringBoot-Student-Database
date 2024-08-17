@@ -1,7 +1,14 @@
 package com.student_database.manage.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-public class StudentException {
+@AllArgsConstructor
+@Builder
+public class StudentException extends RuntimeException {
+
+    private  String errorCode;
+    private String errorMessage;
 }
