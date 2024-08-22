@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -15,14 +18,14 @@ import java.util.List;
 public class StudentAddRequest {
 
     @JsonProperty("staffId")
-    @NotEmpty(message = "Satff id not provided")
+    @NotBlank(message = "Staff id not provided")
     private String staffId;
 
-    @Pattern(regexp = "^(\\s*|ADDNEW|DELETE)$",
-            message = "Madatory input is wrong or not provided")
+    @JsonProperty("studentAction")
+    @Pattern(regexp = "^(\\s*|ADDNEW|DELETE)$",message = "Mandatory input provided is wrong")
     private String studentAction;
 
-    @JsonProperty("staffId")
+    @JsonProperty("studentDetails")
     @NotEmpty(message = "studentDetails id not provided")
     private List<StudentDetails> studentDetails;
 

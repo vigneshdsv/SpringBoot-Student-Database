@@ -2,6 +2,7 @@ package com.student_database.manage.validator;
 
 import com.student_database.manage.dto.Constants;
 import com.student_database.manage.dto.StudentAddRequest;
+import com.student_database.manage.exception.StudentException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -15,7 +16,7 @@ public class Validator {
                     validateInputRequest(request);
             }
             else{
-                throw  new IllegalArgumentException(Constants.REQUEST_MISSING);
+                throw  new StudentException("Bad Request-400",Constants.REQUEST_MISSING);
             }
     }
 

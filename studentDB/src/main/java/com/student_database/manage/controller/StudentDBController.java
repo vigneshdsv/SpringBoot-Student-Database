@@ -14,8 +14,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.Valid;
 import java.util.Iterator;
 import java.util.stream.Stream;
+
+import static com.student_database.manage.dto.Constants.*;
 
 @RestController
 @RequestMapping("/v1/student-db-management")
@@ -31,18 +34,24 @@ public class StudentDBController {
     @PostMapping("/addNewStudent")
     public ResponseEntity<CreateStudentResponse> addNewStudent(
             @RequestBody StudentAddRequest request,
-            @RequestHeader(value = Constants.CORRELATION_ID) String correlationId,
-            @RequestHeader(value = Constants.ACTION) String action,
-            @RequestHeader(value = Constants.TOKEN) String token,
-            final WebRequest webRequest
-            ){
-        final HttpHeaders httpHeaders = requestHeadders(webRequest);
-        log.info("Http headders received for the request ==>  {}",httpHeaders);
+            @RequestHeader(value = CORRELATION_ID) String correlationId,
+            @RequestHeader(value = ACTION) String action,
+            @RequestHeader(value = TOKEN) String token){
+        final HttpHeaders httpHeaders = createHeadder(correlationId,action,token);
+        log.info("Http headers received for the request ==>  {}",httpHeaders);
         log.info("Student request object received : {}", request);
         validator.validateRequest(request,httpHeaders);
         var response= service.studentAddService(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
 
+    }
+
+    private HttpHeaders createHeadder(String correlationId, String action, String token) {
+        HttpHeaders req = new HttpHeaders();
+        req.add(CORRELATION_ID,correlationId);
+        req.add(ACTION,action);
+        req.add(TOKEN,token);
+        return req;
     }
 
     private static HttpHeaders requestHeadders(WebRequest webRequest) {
