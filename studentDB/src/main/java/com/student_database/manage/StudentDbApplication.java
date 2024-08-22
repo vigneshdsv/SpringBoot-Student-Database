@@ -1,4 +1,4 @@
-package StudentDatabase.studentDB;
+package com.student_database.manage;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
