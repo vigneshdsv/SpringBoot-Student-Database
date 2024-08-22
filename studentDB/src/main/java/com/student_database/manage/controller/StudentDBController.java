@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
@@ -33,7 +33,7 @@ public class StudentDBController {
 
     @PostMapping("/addNewStudent")
     public ResponseEntity<CreateStudentResponse> addNewStudent(
-            @RequestBody StudentAddRequest request,
+            @RequestBody @Valid StudentAddRequest request,
             @RequestHeader(value = CORRELATION_ID) String correlationId,
             @RequestHeader(value = ACTION) String action,
             @RequestHeader(value = TOKEN) String token){

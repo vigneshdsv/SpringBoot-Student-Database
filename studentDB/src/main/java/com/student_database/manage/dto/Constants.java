@@ -9,7 +9,7 @@ public class Constants {
     public static final String ACTION = "action";
     public static final String TOKEN = "tokenSec";
     public static final String SWW_ERROR = "SOMETHING_WENT_WRONG";
-    public static final String REQUEST_MISSING = "INPUT REQUEST NOT GIVEN";
+    public static final String REQUEST_MISSING = "Student details input NOT GIVEN";
 
 
 }

@@ -15,7 +15,7 @@ public class StudentService {
     public CreateStudentResponse studentAddService(StudentAddRequest request) {
 
         var res = CreateStudentResponse.builder().status("200")
-                .addedList(List.of(new AddedList(1001L,"Vignesh")))
+                .addedList(List.of(new AddedList(request.getStudentDetails().get(0).getId(),request.getStudentDetails().get(0).getName())))
                 .notAddedListList(List.of(new NotAddedList(1003L,"Prabhkar"))).build();
         return res;
     }
