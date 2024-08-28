@@ -1,5 +1,6 @@
 package com.student_database.manage.exception;
 
+import com.student_database.manage.dto.StudentExceptionResponse;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -15,10 +16,10 @@ import java.util.Map;
 
 @ControllerAdvice
 public class StudentDbControllerAdvice {
-    @SneakyThrows
+
     @ExceptionHandler(StudentException.class)
-    public ResponseEntity<ErrorItem> handleStudentException(StudentException ex){
-        ErrorItem res = ErrorItem.builder().errorCode(ex.getErrorCode()).message(ex.getErrorMessage()).build();
+    public ResponseEntity<StudentExceptionResponse> handleStudentException(StudentException ex){
+        StudentExceptionResponse res = StudentExceptionResponse.builder().errorCode(ex.getErrorCode()).errors(ex.getErrors()).build();
 
         return new ResponseEntity<>(res, HttpStatusCode.valueOf(400));
 
