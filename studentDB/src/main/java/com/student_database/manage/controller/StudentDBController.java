@@ -39,7 +39,7 @@ public class StudentDBController {
             @RequestHeader(value = TOKEN) String token){
         final HttpHeaders httpHeaders = createHeadder(correlationId,action,token);
         log.info("Http headers received for the request ==>  {}",httpHeaders);
-        log.info("Student request object received : {}", request);
+        //log.info("Student request object received : {}", request);
         validator.validateRequest(request,httpHeaders);
         var response= service.studentAddService(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
